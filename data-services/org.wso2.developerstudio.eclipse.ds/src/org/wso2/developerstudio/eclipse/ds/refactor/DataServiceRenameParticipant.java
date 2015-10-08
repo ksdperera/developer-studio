@@ -16,6 +16,12 @@
 
 package org.wso2.developerstudio.eclipse.ds.refactor;
 
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -27,15 +33,16 @@ import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
+import org.wso2.developerstudio.eclipse.ds.Activator;
 import org.wso2.developerstudio.eclipse.ds.util.Messages;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class DataServiceRenameParticipant extends RenameParticipant {
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	private static final String PARTICIPANT_NAME = "DataServiceRename"; //$NON-NLS-1$
 	private static final String ARTIFACT_XML_FILE = "artifact.xml"; //$NON-NLS-1$
 	private static final List<String> SKIP_LIST = Arrays.asList("target", "bin", ".svn", ".git"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
@@ -72,30 +79,22 @@ public class DataServiceRenameParticipant extends RenameParticipant {
 			return RefactoringStatus.createFatalErrorStatus(Messages.DataServiceRenameParticipant_InvalidResourceType);
 		}
 	}
+	
 
 	public Change createPreChange(IProgressMonitor arg0) throws CoreException, OperationCanceledException {
 		CompositeChange change = new CompositeChange(Messages.DataServiceRenameParticipant_DataServiceChange);
 		try {
-			change.add(new DataServiceFileChange(Messages.DataServiceRenameParticipant_DataServiceChange, originalFile,
+			IFile artifactFile = dsProject.getFile(ARTIFACT_XML_FILE);
+		 			change.add(new DataServiceFileChange(Messages.DataServiceRenameParticipant_DataServiceChange, originalFile,
 					originalFileFullName, changedFileFullName));
+			change.add(new DataServiceMetaDataFileChange(Messages.DataServiceRenameParticipant_MetaDataChange,
+					artifactFile, originalFileFullName, changedFileFullName));
 		} catch (IOException e) {
 			throw new OperationCanceledException(Messages.DataServiceRenameParticipant_DataServiceRenameFailed);
 		}
 		return change;
 	}
 
-	public Change createChange(IProgressMonitor arg0) throws CoreException, OperationCanceledException {
-		CompositeChange change = new CompositeChange(Messages.DataServiceRenameParticipant_MetaDataChange);
-
-		IFile artifactFile = dsProject.getFile(ARTIFACT_XML_FILE);
-		try {
-			change.add(new DataServiceMetaDataFileChange(Messages.DataServiceRenameParticipant_MetaDataChange,
-					artifactFile, originalFileFullName, changedFileFullName));
-		} catch (IOException e) {
-			throw new OperationCanceledException(Messages.DataServiceRenameParticipant_ArtifactXmlRenameFailed);
-		}
-		return change;
-	}
 
 	public String getName() {
 		return PARTICIPANT_NAME;
@@ -113,5 +112,12 @@ public class DataServiceRenameParticipant extends RenameParticipant {
 			return true;
 		}
 		return false;
+	}
+
+
+	@Override
+	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
+package org.wso2.developerstudio.eclipse.esb.project.refactoring.delete;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -29,7 +29,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.DeleteEdit;
 import org.eclipse.text.edits.MultiTextEdit;
-import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
+import org.wso2.developerstudio.eclipse.esb.project.Activator;
+import org.wso2.developerstudio.eclipse.esb.project.utils.RefactorUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -110,7 +111,7 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 						addEdit(new DeleteEdit(start, line.trim().length()));
 					}
 				}
-					
+
 				if (!isDependencies && line.contains(dependenciesStart)) {
 					isDependencies = true;
 				}

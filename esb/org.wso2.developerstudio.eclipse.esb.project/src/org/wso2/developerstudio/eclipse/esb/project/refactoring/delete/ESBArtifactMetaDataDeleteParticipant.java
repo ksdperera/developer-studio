@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -30,8 +31,14 @@ import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.DeleteParticipant;
+import org.wso2.developerstudio.eclipse.esb.project.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class ESBArtifactMetaDataDeleteParticipant extends DeleteParticipant {
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	private IFile originalFile;
 	private static int numOfFiles;
 	private static int currentFileNum;
@@ -41,7 +48,9 @@ public class ESBArtifactMetaDataDeleteParticipant extends DeleteParticipant {
 	@Override
 	public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
 			throws OperationCanceledException {
-		return RefactoringStatus.createWarningStatus("You are about to delete an ESB Artifact");
+		String msg ="[warning] - Only the CApp(pom.xml) & project meta data file(arifact.xml) will be updated, but If any other references,"
+				+ "those will be remain unchanged";
+		return RefactoringStatus.createWarningStatus(msg);
 	}
 
 	@Override

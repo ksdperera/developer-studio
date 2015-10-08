@@ -16,6 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.esb.project.refactoring.rename;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -27,12 +30,14 @@ import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
+import org.wso2.developerstudio.eclipse.esb.project.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ESBArtifactRenameParticipant extends RenameParticipant {
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private IFile originalFile;
 	private String changedFileName;
 	private IProject esbProject;
@@ -70,21 +75,21 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 				return RefactoringStatus.createFatalErrorStatus("You are trying to rename your ESB Artifact to have the project name.");
 			}
 
-			return RefactoringStatus.createInfoStatus("You are about the rename your ESB Artifact " +
-			                                          originalFile.getName() +
-			                                          " to " +
-			                                          changedFileName);
+			String msg ="[warning] - "+originalFile.getName()+" change to"+changedFileName+" "
+					+ " and only the CApp(pom.xml) & project meta data file(arifact.xml) will be updated, but If any other references,"
+					+ " those will be remain unchanged";
+			return RefactoringStatus.createWarningStatus(msg);
+			
 		}
 
 		return RefactoringStatus.createFatalErrorStatus("You are trying to rename a different resource than a file");
 	}
 	
 	
-
-	
+   
 	public Change createChange(IProgressMonitor arg0) throws CoreException,
 	                                                 OperationCanceledException {
-		CompositeChange change=new CompositeChange("ESB Artifact Model Rename");
+		CompositeChange change=new CompositeChange("ESB Artifact Model");
 		String originalFileNamewithExtension = originalFile.getName();
 		IFile artifactFile = esbProject.getFile("artifact.xml");
 		String originalNameWithoutExtension = originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4);
@@ -93,7 +98,7 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 		return change;
 	}
 
-	
+
 	public String getName() {
 		return "ESBArtifactRename";
 	}
