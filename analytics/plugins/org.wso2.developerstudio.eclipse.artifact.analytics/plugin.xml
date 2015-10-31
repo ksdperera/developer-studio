@@ -18,6 +18,17 @@
          </category>
    </extension>  
    
+   <extension
+         id="analyticsBuilder"
+         name="Analytics Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="org.wso2.developerstudio.eclipse.artifact.analytics.utils.AnalyticsBuilder">
+         </run>
+      </builder>
+   </extension>
    
    <extension
 		point="org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard">
@@ -50,6 +61,9 @@
 				class="org.wso2.developerstudio.eclipse.artifact.analytics.project.nature.AnalyticsProjectNature">
 			</run>
 		</runtime>
+		<builder
+            id="org.wso2.developerstudio.eclipse.artifact.analytics.analyticsBuilder">
+      	</builder>
 	</extension>
 
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
@@ -120,5 +134,16 @@
   		</public> 
  	 	</catalogContribution> 	 
  	</extension>
- 	  
+ 	
+ 	<extension
+         id="xmlProblem"
+         name="XML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   	</extension>	  
 </plugin>
