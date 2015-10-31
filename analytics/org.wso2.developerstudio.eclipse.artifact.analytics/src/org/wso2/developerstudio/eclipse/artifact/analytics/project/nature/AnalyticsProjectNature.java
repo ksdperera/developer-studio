@@ -21,11 +21,15 @@ import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
+import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.artifact.analytics.Activator;
+import org.wso2.developerstudio.eclipse.artifact.analytics.utils.AnalyticsBuilder;
 import org.wso2.developerstudio.eclipse.artifact.analytics.utils.AnalyticsConstants;
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -40,6 +44,7 @@ public class AnalyticsProjectNature extends AbstractWSO2ProjectNature {
 
     private static final String CAPP_TYPE = "event/stream=json,event/publisher=xml,event/receiver=xml,event/execution-plan=siddhiql,bpel/workflow=zip,lib/registry/filter=jar,webapp/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar,synapse/task=xml,synapse/api=xml,synapse/template=xml,synapse/message-store=xml,synapse/message-processors=xml,synapse/inbound-endpoint=xml";
     private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+    private IProject project;
 
     public void configure() throws CoreException {
         String[] childrenList = {AnalyticsConstants.ANALYTICS_STREAM_DIR, AnalyticsConstants.ANALYTICS_PUBLISHER_DIR,
@@ -52,6 +57,23 @@ public class AnalyticsProjectNature extends AbstractWSO2ProjectNature {
             createChildren(parentFolder, child);
         }
         updatePom();
+        
+        IProjectDescription desc = project.getDescription();
+		ICommand[] commands = desc.getBuildSpec();
+
+		for (int i = 0; i < commands.length; ++i) {
+			if (commands[i].getBuilderName().equals(AnalyticsBuilder.BUILDER_ID)) {
+				return;
+			}
+		}
+
+		ICommand[] newCommands = new ICommand[commands.length + 1];
+		System.arraycopy(commands, 0, newCommands, 0, commands.length);
+		ICommand command = desc.newCommand();
+		command.setBuilderName(AnalyticsBuilder.BUILDER_ID);
+		newCommands[newCommands.length - 1] = command;
+		desc.setBuildSpec(newCommands);
+		project.setDescription(desc, null);
     }
 
     private void updatePom() {
@@ -163,4 +185,22 @@ public class AnalyticsProjectNature extends AbstractWSO2ProjectNature {
         // TODO Auto-generated method stub
 
     }
+    
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.IProjectNature#getProject()
+	 */
+	public IProject getProject() {
+		return project;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.IProjectNature#setProject(org.eclipse.core.resources.IProject)
+	 */
+	public void setProject(IProject project) {
+		this.project = project;
+	}
 }

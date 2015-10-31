@@ -59,3 +59,6 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.utils.template,
  org.wso2.developerstudio.eclipse.utils.ui
 Export-Package: org.wso2.developerstudio.eclipse.artifact.analytics.utils
+Bundle-ClassPath: lib/saxon8-dom.jar,
+ lib/saxon8.jar,
+ .
