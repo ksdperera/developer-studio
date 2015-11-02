@@ -58,16 +58,6 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 
 	/** The factory that will create the transformers to apply the XSLs */
 	private TransformerFactory transformerFactory = null;
-	
-	public static final String BUILDER_ID = "org.wso2.developerstudio.eclipse.artifact.analytics.analyticsBuilder";
-	private static final String MARKER_TYPE = "org.wso2.developerstudio.eclipse.artifact.analytics.xmlProblem";
-	private static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.artifact.analytics";
-	public static final String PATH_TO_SCH_MESSAGE = "schema/schematron-message.xsl";
-	public static final String PATH_TO_SCH = "schema/receiver.sch";
-	public static final String RECORD_IDENTIFIER = "@@@";
-	public static final String FIELD_DELIMITER = ":";
-	public static final String MESSAGE_TYPE_ASSERT = "ASSERT";
-	public static final String MESSAGE_TYPE_REPORT = "REPORT";
 	private SchematronValidationErrorListener errorListener = new SchematronValidationErrorListener();
 	
 	
@@ -89,7 +79,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 		transformerFactory = createTransformerFactory();
 	}
 	
-	class SampleDeltaVisitor implements IResourceDeltaVisitor
+	class AnalyticsProjectDeltaVisitor implements IResourceDeltaVisitor
 	{
 		/*
          * (non-Javadoc)
@@ -137,7 +127,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 		}
 	}
 	
-	class SampleResourceVisitor implements IResourceVisitor
+	class AnalyticsProjectResourceVisitor implements IResourceVisitor
 	{
 		@Override
 		public boolean visit(IResource resource)
@@ -152,7 +142,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 	{
 		try
 		{
-			IMarker marker = file.createMarker(MARKER_TYPE);
+			IMarker marker = file.createMarker(AnalyticsConstants.MARKER_TYPE);
 			marker.setAttribute(IMarker.MESSAGE, message);
 			marker.setAttribute(IMarker.SEVERITY, severity);
 			if (lineNumber == -1)
@@ -229,8 +219,8 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 			Node node = list.item(i);
 			if (node.getNodeName().equals("eventReceiver"))
 			{				
-				Bundle bundle = Platform.getBundle(BUNDLE_NAME);
-				URL fileURL = bundle.getEntry(PATH_TO_SCH);
+				Bundle bundle = Platform.getBundle(AnalyticsConstants.BUNDLE_NAME);
+				URL fileURL = bundle.getEntry(AnalyticsConstants.PATH_TO_SCH);
 				try {
 				    schemaFile = new File(FileLocator.resolve(fileURL).toURI());
 				} catch (URISyntaxException e1) {
@@ -262,8 +252,8 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 			File schematronFile = extractSchemasFromPIs(file);	
 			
 			File f = null;				
-			Bundle bundle = Platform.getBundle(BUNDLE_NAME);
-			URL fileURL = bundle.getEntry(PATH_TO_SCH_MESSAGE);
+			Bundle bundle = Platform.getBundle(AnalyticsConstants.BUNDLE_NAME);
+			URL fileURL = bundle.getEntry(AnalyticsConstants.PATH_TO_SCH_MESSAGE);
 			try {
 			    f = new File(FileLocator.resolve(fileURL).toURI());
 			} catch (URISyntaxException e1) {
@@ -311,14 +301,14 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 
 		while (line != null)
 		{
-			if (line.startsWith(RECORD_IDENTIFIER))
+			if (line.startsWith(AnalyticsConstants.RECORD_IDENTIFIER))
 			{
-				StringTokenizer st = new StringTokenizer(line.substring(RECORD_IDENTIFIER.length()), FIELD_DELIMITER);
+				StringTokenizer st = new StringTokenizer(line.substring(AnalyticsConstants.RECORD_IDENTIFIER.length()), AnalyticsConstants.FIELD_DELIMITER);
 				int lineNumber = Integer.parseInt(st.nextToken());
 				String type = st.nextToken();
 				//String schemaLineNo = st.nextToken();
-				String message = line.substring(line.lastIndexOf(FIELD_DELIMITER) + 1);
-				int level = (MESSAGE_TYPE_ASSERT.equals(type) ? IMarker.SEVERITY_ERROR : IMarker.SEVERITY_INFO);
+				String message = line.substring(line.lastIndexOf(AnalyticsConstants.FIELD_DELIMITER) + 1);
+				int level = (AnalyticsConstants.MESSAGE_TYPE_ASSERT.equals(type) ? IMarker.SEVERITY_ERROR : IMarker.SEVERITY_INFO);
 				
 				//addMarker(file, message + " (see line " + schemaLineNo + " in schema " + schemaFile.getAbsolutePath() + ")", lineNumber, level);
 				addMarker(file, message , lineNumber, level);
@@ -366,7 +356,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 	{
 		try
 		{
-			file.deleteMarkers(MARKER_TYPE, false, IResource.DEPTH_ZERO);
+			file.deleteMarkers(AnalyticsConstants.MARKER_TYPE, false, IResource.DEPTH_ZERO);
 		}
 		catch (CoreException ce)
 		{
@@ -377,7 +367,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 	{
 		try
 		{
-			getProject().accept(new SampleResourceVisitor());
+			getProject().accept(new AnalyticsProjectResourceVisitor());
 		}
 		catch (CoreException e)
 		{
@@ -387,7 +377,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 	protected void incrementalBuild(IResourceDelta delta, IProgressMonitor monitor) throws CoreException
 	{
 		// the visitor does the work.
-		delta.accept(new SampleDeltaVisitor());
+		delta.accept(new AnalyticsProjectDeltaVisitor());
 	}
 	
 	

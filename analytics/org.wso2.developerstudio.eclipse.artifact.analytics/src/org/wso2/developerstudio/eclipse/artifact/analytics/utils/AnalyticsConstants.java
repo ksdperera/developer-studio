@@ -22,7 +22,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class AnalyticsConstants extends NLS {
 
-	public static final String BUNDLE_NAME = "analytics_constants";
+	public static final String BUNDLE_CON_NAME = "analytics_constants";
 
 	// project wizard page properties
 	public static String WIZARD_OPTION_ANALYTICS_NAME;
@@ -56,9 +56,19 @@ public class AnalyticsConstants extends NLS {
 	public static String NAMETAG_PUBLISHER_TEMPLATE;
 	public static String NAMETAG_RECEIVER_TEMPLATE;
 	public static String NAMETAG_STREAM_TEMPLATE;
+	public static String BUILDER_ID;
+	public static String MARKER_TYPE;
+	public static String BUNDLE_NAME;
+	public static String PATH_TO_SCH_MESSAGE;
+	public static String PATH_TO_SCH;
+	public static String RECORD_IDENTIFIER;
+	public static String FIELD_DELIMITER;
+	public static String MESSAGE_TYPE_ASSERT;
+	public static String MESSAGE_TYPE_REPORT;
+			
 	static {
 		// initialize resource bundle
-		NLS.initializeMessages(BUNDLE_NAME, AnalyticsConstants.class);
+		NLS.initializeMessages(BUNDLE_CON_NAME, AnalyticsConstants.class);
 	}
 
 	public AnalyticsConstants() {

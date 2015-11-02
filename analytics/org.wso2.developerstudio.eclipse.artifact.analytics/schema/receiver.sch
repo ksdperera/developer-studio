@@ -545,12 +545,6 @@
   	<!-- Start ruling Pattern for mapping element type=" "--> 
    	<sch:pattern id="MappingType">
    		<sch:title>Checks the Mapping contents are correct for mapping type</sch:title>
-    	
-    	<sch:rule context="rs:mapping[@type='wso2event']">
-      		<sch:assert test="current()/rs:from">
-         		Required child element missing 'from' !
-      		</sch:assert>	
-    	</sch:rule>
 
 		<sch:rule context="rs:mapping[@type='xml']">
       		<sch:assert test="current()/rs:xpathDefinition">

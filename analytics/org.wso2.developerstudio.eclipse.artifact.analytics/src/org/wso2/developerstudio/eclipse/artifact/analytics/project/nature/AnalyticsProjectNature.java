@@ -29,7 +29,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.artifact.analytics.Activator;
-import org.wso2.developerstudio.eclipse.artifact.analytics.utils.AnalyticsBuilder;
 import org.wso2.developerstudio.eclipse.artifact.analytics.utils.AnalyticsConstants;
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -62,7 +61,7 @@ public class AnalyticsProjectNature extends AbstractWSO2ProjectNature {
 		ICommand[] commands = desc.getBuildSpec();
 
 		for (int i = 0; i < commands.length; ++i) {
-			if (commands[i].getBuilderName().equals(AnalyticsBuilder.BUILDER_ID)) {
+			if (commands[i].getBuilderName().equals(AnalyticsConstants.BUILDER_ID)) {
 				return;
 			}
 		}
@@ -70,7 +69,7 @@ public class AnalyticsProjectNature extends AbstractWSO2ProjectNature {
 		ICommand[] newCommands = new ICommand[commands.length + 1];
 		System.arraycopy(commands, 0, newCommands, 0, commands.length);
 		ICommand command = desc.newCommand();
-		command.setBuilderName(AnalyticsBuilder.BUILDER_ID);
+		command.setBuilderName(AnalyticsConstants.BUILDER_ID);
 		newCommands[newCommands.length - 1] = command;
 		desc.setBuildSpec(newCommands);
 		project.setDescription(desc, null);

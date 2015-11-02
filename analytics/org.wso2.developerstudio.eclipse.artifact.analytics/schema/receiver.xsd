@@ -12,6 +12,7 @@
     	<sequence>
     		<element name="from" type="rs:from"></element>
     		<element name="mapping" type="rs:mapping"></element>
+    		<element name="to" type="rs:to" maxOccurs="1" minOccurs="0"></element>
     	</sequence>
     	<attribute name="name" type="string" use="required"></attribute>
     	<attribute name="statistics" type="rs:switch" use="required"></attribute>
@@ -108,7 +109,7 @@
     				type="rs:xpathDefinitionType" maxOccurs="1" minOccurs="0">
     			</element>
     		</choice>
-            <element name="property" type="rs:mappingProperty" maxOccurs="unbounded" minOccurs="1"></element>
+            <element name="property" type="rs:mappingProperty" maxOccurs="1" minOccurs="0"></element>
         </sequence>
     	<attribute name="customMapping" type="rs:switch"></attribute>
     	<attribute name="type" type="rs:metaType"></attribute>
@@ -185,4 +186,9 @@
     	<attribute name="dataType" type="string"></attribute>
     	<attribute name="name" type="string"></attribute>
     </attributeGroup>
+
+    <complexType name="to">
+    	<attribute name="streamName" type="string"></attribute>
+    	<attribute name="version" type="string"></attribute>
+    </complexType>
 </schema>
