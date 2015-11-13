@@ -546,12 +546,6 @@
    	<sch:pattern id="MappingType">
    		<sch:title>Checks the Mapping contents are correct for mapping type</sch:title>
 
-		<sch:rule context="rs:mapping[@type='xml']">
-      		<sch:assert test="current()/rs:xpathDefinition">
-         		Required child element missing 'xpathDefinition' !
-      		</sch:assert>	
-    	</sch:rule>
-    	
     	<sch:rule context="rs:mapping/rs:from">
       		<sch:assert test="..[@type='wso2event']">
          		Invalid child element name 'from' under this mapping type!
@@ -575,24 +569,31 @@
          		Invalid attribute name under this mapping name!
       		</sch:assert>	
     	</sch:rule>
-
-		<sch:rule context="rs:mapping[@type='xml']">
-      		<sch:assert test="current()/rs:xpathDefinition">
-         		Required child element missing 'xpathDefinition' !
+    	
+    	<sch:rule context="rs:mapping[@type='xml']/rs:property/rs:from">
+      		<sch:assert test="count(current()[@xpath]) = count(attribute::*)">
+         		Invalid attribute name under this mapping name!
       		</sch:assert>	
     	</sch:rule>
     	
-    	<sch:rule context="rs:mapping/rs:from">
-      		<sch:assert test="..[@type='wso2event']">
-         		Invalid child element name 'from' under this mapping type!
+    	<sch:rule context="rs:mapping[@type='json']/rs:property/rs:from">
+      		<sch:assert test="count(current()[@jsonPath]) = count(attribute::*)">
+         		Invalid attribute name under this mapping name!
       		</sch:assert>	
     	</sch:rule>
     	
-    	<sch:rule context="rs:mapping/rs:xpathDefinition">
-      		<sch:assert test="..[@type='xml']">
-         		Invalid child element name 'xpathDefinition' under this mapping type!
+    	<sch:rule context="rs:mapping[@type='text']/rs:property/rs:from">
+      		<sch:assert test="count(current()[@regex]) = count(attribute::*)">
+         		Invalid attribute name under this mapping name!
       		</sch:assert>	
-    	</sch:rule>	
+    	</sch:rule>
+    	
+		<sch:rule context="rs:mapping[@type='map']/rs:property/rs:from">
+      		<sch:assert test="count(current()[@name]) = count(attribute::*)">
+         		Invalid attribute name under this mapping name!
+      		</sch:assert>	
+    	</sch:rule>
+	
    	</sch:pattern>
   	<!-- End ruling Pattern for mapping element type=" "-->	
    		
