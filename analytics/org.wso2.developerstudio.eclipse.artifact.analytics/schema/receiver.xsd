@@ -109,7 +109,7 @@
     				type="rs:xpathDefinitionType" maxOccurs="1" minOccurs="0">
     			</element>
     		</choice>
-            <element name="property" type="rs:mappingProperty" maxOccurs="1" minOccurs="0"></element>
+            <element name="property" type="rs:mappingProperty" maxOccurs="unbounded" minOccurs="0"></element>
         </sequence>
     	<attribute name="customMapping" type="rs:switch"></attribute>
     	<attribute name="type" type="rs:metaType"></attribute>
@@ -140,7 +140,7 @@
     <complexType name="mappingProperty">
     	<sequence>
     		<element name="from" type="rs:mappingPropertyFrom"></element>
-    		<element name="to" type="rs:mappingPropertyTo"></element>
+    		<element name="to" type="rs:mappingPropertyTo" maxOccurs="unbounded" minOccurs="1"></element>
     	</sequence>
     </complexType>
     
