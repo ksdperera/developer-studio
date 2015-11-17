@@ -1,47 +1,187 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://wso2.org/carbon/eventpublisher" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="eventPublisher">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="from">
-          <xs:complexType>
-            <xs:simpleContent>
-              <xs:extension base="xs:string">
-                <xs:attribute type="xs:string" name="streamName"/>
-                <xs:attribute type="xs:string" name="version"/>
-              </xs:extension>
-            </xs:simpleContent>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="mapping">
-          <xs:complexType>
-            <xs:simpleContent>
-              <xs:extension base="xs:string">
-                <xs:attribute type="xs:string" name="customMapping"/>
-                <xs:attribute type="xs:string" name="type"/>
-              </xs:extension>
-            </xs:simpleContent>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="to">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="property" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:string">
-                      <xs:attribute type="xs:string" name="name" use="optional"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-            <xs:attribute type="xs:string" name="eventAdapterType"/>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-      <xs:attribute type="xs:string" name="name"/>
-      <xs:attribute type="xs:string" name="statistics"/>
-      <xs:attribute type="xs:string" name="trace"/>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		xmlns:tns="http://wso2.org/carbon/eventpublisher" 
+		targetNamespace="http://wso2.org/carbon/eventpublisher"
+		elementFormDefault="qualified">
+    <element name="eventPublisher" type="tns:eventPublisher"></element>
+    
+    <complexType name="eventPublisher">
+    	<sequence>
+    		<element name="from" type="tns:from"></element>
+            <element name="mapping" type="tns:mapping"></element>
+            <element name="to" type="tns:to"></element>
+        </sequence>
+    	<attribute name="name" type="string" use="required"></attribute>
+    	<attribute name="statistics" type="tns:switch" use="required"></attribute>
+    	<attribute name="trace" type="tns:switch" use="required"></attribute>
+    </complexType>
+
+    <simpleType name="switch">
+    	<restriction base="string">
+    		<enumeration value="enable"></enumeration>
+    		<enumeration value="disable"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="from">
+    	<attribute name="streamName" type="string"></attribute>
+    	<attribute name="version" type="string"></attribute>
+    </complexType>
+
+    <complexType name="mapping">
+    	<choice>
+    		<sequence>
+    			<element name="to" type="tns:from"></element>
+    			<element name="metaData" type="tns:metaDataType"></element>
+    			<element name="payloadData" type="tns:metaDataType"></element>
+    		</sequence>
+    		<element name="inline" type="tns:inlineType"></element>
+    		<element name="property" type="tns:propertyType2" maxOccurs="unbounded" minOccurs="1"></element>
+    	</choice>
+    	<attribute name="customMapping" type="tns:switch"></attribute>
+    	<attribute name="type" type="tns:mappingType"></attribute>
+    </complexType>
+
+    <complexType name="to">
+    	<sequence>
+    		<element name="property" type="tns:propertyType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    	<attribute name="eventAdapterType"
+    		type="tns:eventAdapterType">
+    	</attribute>
+    </complexType>
+
+    <simpleType name="mappingType">
+    	<restriction base="string">
+    		<enumeration value="json"></enumeration>
+    		<enumeration value="text"></enumeration>
+    		<enumeration value="wso2event"></enumeration>
+    		<enumeration value="xml"></enumeration>
+    		<enumeration value="map"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="eventAdapterType">
+    	<restriction base="string">
+    		<enumeration value="websocket-local"></enumeration>
+    		<enumeration value="websocket"></enumeration>
+    		<enumeration value="cassandra"></enumeration>
+    		<enumeration value="email"></enumeration>
+    		<enumeration value="http"></enumeration>
+    		<enumeration value="jms"></enumeration>
+    		<enumeration value="kafka"></enumeration>
+    		<enumeration value="logger"></enumeration>
+    		<enumeration value="mqtt"></enumeration>
+    		<enumeration value="rdbms"></enumeration>
+    		<enumeration value="sms"></enumeration>
+    		<enumeration value="soap"></enumeration>
+    		<enumeration value="ui"></enumeration>
+    		<enumeration value="wso2event"></enumeration>
+    	</restriction>
+    </simpleType>
+
+
+    <simpleType name="nameType">
+    	<restriction base="string">
+    		<enumeration value="port"></enumeration>
+    		<enumeration value="indexed.columns"></enumeration>
+    		<enumeration value="key.space.name"></enumeration>
+    		<enumeration value="user.name"></enumeration>
+    		<enumeration value="column.family.name"></enumeration>
+    		<enumeration value="hosts"></enumeration>
+    		<enumeration value="replication.factor"></enumeration>
+    		<enumeration value="password"></enumeration>
+    		<enumeration value="strategy.class"></enumeration>
+    		<enumeration value="email.address"></enumeration>
+    		<enumeration value="email.type"></enumeration>
+    		<enumeration value="email.subject"></enumeration>
+    		<enumeration value="http.client.method"></enumeration>
+    		<enumeration value="http.username"></enumeration>
+    		<enumeration value="http.proxy.host"></enumeration>
+    		<enumeration value="http.proxy.port"></enumeration>
+    		<enumeration value="http.password"></enumeration>
+    		<enumeration value="http.headers"></enumeration>
+    		<enumeration value="http.url"></enumeration>
+    		<enumeration value="java.naming.factory.initial"></enumeration>
+    		<enumeration value="java.naming.provider.url"></enumeration>
+    		<enumeration value="transport.jms.UserName"></enumeration>
+    		<enumeration value="transport.jms.Password"></enumeration>
+    		<enumeration value="transport.jms.DestinationType"></enumeration>
+    		<enumeration value="transport.jms.Header"></enumeration>
+    		<enumeration value="transport.jms.Destination"></enumeration>
+    		<enumeration value="transport.jms.ConnectionFactoryJNDIName"></enumeration>
+    		<enumeration value="topic"></enumeration>
+    		<enumeration value="optional.configuration"></enumeration>
+    		<enumeration value="meta.broker.list"></enumeration>
+    		<enumeration value="uniqueId"></enumeration>
+    		<enumeration value="username"></enumeration>
+    		<enumeration value="qos"></enumeration>
+    		<enumeration value="clientId"></enumeration>
+    		<enumeration value="url"></enumeration>
+    		<enumeration value="cleanSession"></enumeration>
+    		<enumeration value="datasource.name"></enumeration>
+    		<enumeration value="table.name"></enumeration>
+    		<enumeration value="execution.mode"></enumeration>
+    		<enumeration value="update.keys"></enumeration>
+    		<enumeration value="sms.no"></enumeration>
+    		<enumeration value="httpHeaders"></enumeration>
+    		<enumeration value="soapHeaders"></enumeration>
+    		<enumeration value="output.event.stream.version"></enumeration>
+    		<enumeration value="output.event.stream.name"></enumeration>
+    		<enumeration value="websocket.server.url"></enumeration>
+    		<enumeration value="protocol"></enumeration>
+    		<enumeration value="publishingMode"></enumeration>
+    		<enumeration value="publishTimeout"></enumeration>
+    		<enumeration value="receiverURL"></enumeration>
+    		<enumeration value="authenticatorURL"></enumeration>
+    	</restriction>
+    </simpleType>
+
+
+    <complexType name="metaDataType">
+    	<sequence>
+    		<element name="property" type="tns:propertyType1" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="propertyType1">
+    	<sequence>
+    		<element name="from" type="tns:fromType"></element>
+    		<element name="to" type="tns:toType"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="fromType">
+    	<attribute name="name" type="string"></attribute>
+    </complexType>
+    
+    <complexType name="toType">
+    	<attribute name="name" type="string"></attribute>
+    	<attribute name="type" type="string"></attribute>
+    </complexType>
+
+
+    <complexType name="inlineType"></complexType>
+
+    <complexType name="propertyType2">
+    	<sequence>
+    		<element name="from" type="tns:fromType"></element>
+    		<element name="to" type="tns:toType1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="toType1">
+    	<attribute name="name" type="string"></attribute>
+    </complexType>
+
+
+    <complexType name="propertyType">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="name" type="tns:nameType"></attribute>
+    			<attribute name="encrypted" type="string"></attribute>
+    		</extension>
+    	</simpleContent>
+
+    </complexType>
+</schema>
