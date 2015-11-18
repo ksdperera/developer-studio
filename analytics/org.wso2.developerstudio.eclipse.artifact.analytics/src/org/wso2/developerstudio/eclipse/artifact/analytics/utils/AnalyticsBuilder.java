@@ -126,7 +126,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 		{
 			IFile file = (IFile) resource;
 			String filePerent = file.getParent().getName();
-			if (file.getFileExtension().equals("xml") && filePerent.equals("receiver"))
+			if (file.getFileExtension().equals("xml") && (filePerent.equals("receiver") | filePerent.equals("publisher")))
 			{
 				processXML(file);
 			}
@@ -226,7 +226,7 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 			if (node.getNodeName().equals("eventReceiver"))
 			{				
 				Bundle bundle = Platform.getBundle(AnalyticsConstants.BUNDLE_NAME);
-				URL fileURL = bundle.getEntry(AnalyticsConstants.PATH_TO_SCH);
+				URL fileURL = bundle.getEntry(AnalyticsConstants.PATH_TO_SCH_RECEIVER);
 				try {
 				    schemaFile = new File(FileLocator.resolve(fileURL).toURI());
 				} catch (URISyntaxException e1) {
@@ -238,6 +238,22 @@ public class AnalyticsBuilder extends IncrementalProjectBuilder {
 				if (schemaFile == null || schemaFile.exists() == false)
 				{
 					this.addMarker(file, "Schema " + "eventReceiver" + " does not exist", 1,
+									IMarker.SEVERITY_ERROR);
+				}
+			}else if(node.getNodeName().equals("eventPublisher")){
+				Bundle bundle = Platform.getBundle(AnalyticsConstants.BUNDLE_NAME);
+				URL fileURL = bundle.getEntry(AnalyticsConstants.PATH_TO_SCH_PUBLISHER);
+				try {
+				    schemaFile = new File(FileLocator.resolve(fileURL).toURI());
+				} catch (URISyntaxException e1) {
+				    e1.printStackTrace();
+				} catch (IOException e1) {
+				    e1.printStackTrace();
+				}
+				
+				if (schemaFile == null || schemaFile.exists() == false)
+				{
+					this.addMarker(file, "Schema " + "eventPublisher" + " does not exist", 1,
 									IMarker.SEVERITY_ERROR);
 				}
 			}

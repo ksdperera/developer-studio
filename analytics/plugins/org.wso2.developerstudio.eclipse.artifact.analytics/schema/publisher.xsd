@@ -44,7 +44,7 @@
 
     <complexType name="to">
     	<sequence>
-    		<element name="property" type="tns:propertyType" maxOccurs="unbounded" minOccurs="1"></element>
+    		<element name="property" type="tns:propertyType" maxOccurs="unbounded" minOccurs="0"></element>
     	</sequence>
     	<attribute name="eventAdapterType"
     		type="tns:eventAdapterType">
