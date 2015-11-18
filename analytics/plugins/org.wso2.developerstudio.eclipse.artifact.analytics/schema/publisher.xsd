@@ -36,7 +36,7 @@
     			<element name="payloadData" type="tns:metaDataType"></element>
     		</sequence>
     		<element name="inline" type="tns:inlineType"></element>
-    		<element name="property" type="tns:propertyType2" maxOccurs="unbounded" minOccurs="1"></element>
+    		<element name="property" type="tns:propertyType2" maxOccurs="unbounded" minOccurs="0"></element>
     	</choice>
     	<attribute name="customMapping" type="tns:switch"></attribute>
     	<attribute name="type" type="tns:mappingType"></attribute>
