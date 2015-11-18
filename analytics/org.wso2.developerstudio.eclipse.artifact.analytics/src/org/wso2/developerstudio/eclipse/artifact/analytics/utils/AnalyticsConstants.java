@@ -60,7 +60,8 @@ public class AnalyticsConstants extends NLS {
 	public static String MARKER_TYPE;
 	public static String BUNDLE_NAME;
 	public static String PATH_TO_SCH_MESSAGE;
-	public static String PATH_TO_SCH;
+	public static String PATH_TO_SCH_RECEIVER;
+	public static String PATH_TO_SCH_PUBLISHER;
 	public static String RECORD_IDENTIFIER;
 	public static String FIELD_DELIMITER;
 	public static String MESSAGE_TYPE_ASSERT;
