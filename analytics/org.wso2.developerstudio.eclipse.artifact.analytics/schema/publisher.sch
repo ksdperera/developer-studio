@@ -140,7 +140,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type cassandra</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='port']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='port'])=1">
@@ -149,7 +161,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='indexed.columns']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='indexed.columns'])=1">
@@ -158,7 +182,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='key.space.name']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='key.space.name'])=1">
@@ -167,7 +203,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='user.name']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='user.name'])=1">
@@ -176,7 +224,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='column.family.name']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='column.family.name'])=1">
@@ -185,7 +245,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='hosts']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='hosts'])=1">
@@ -194,7 +266,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='replication.factor']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='replication.factor'])=1">
@@ -203,7 +287,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='strategy.class']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='strategy.class'])=1">
@@ -219,7 +315,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type email</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='email.address']">
-      		<sch:assert test="//pb:to[@eventAdapterType='email']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='email.address'])=1">
@@ -228,7 +336,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='email.type']">
-      		<sch:assert test="//pb:to[@eventAdapterType='email']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='email.type'])=1">
@@ -237,7 +357,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='email.subject']">
-      		<sch:assert test="//pb:to[@eventAdapterType='email']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='http'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='email.subject'])=1">
@@ -252,7 +384,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type http</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='http.client.method']">
-      		<sch:assert test="//pb:to[@eventAdapterType='http']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='http.client.method'])=1">
@@ -261,7 +405,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='http.username']">
-      		<sch:assert test="//pb:to[@eventAdapterType='http']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='http.username'])=1">
@@ -270,7 +426,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='http.proxy.host']">
-      		<sch:assert test="//pb:to[@eventAdapterType='http']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='http.proxy.host'])=1">
@@ -279,7 +447,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='http.proxy.port']">
-      		<sch:assert test="//pb:to[@eventAdapterType='http']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='http.proxy.port'])=1">
@@ -288,7 +468,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='http.password']">
-      		<sch:assert test="//pb:to[@eventAdapterType='http']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='http.password'])=1">
@@ -297,7 +489,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='http.headers']">
-      		<sch:assert test="//pb:to[@eventAdapterType='http']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='http.headers'])=1">
@@ -306,7 +510,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='http.url']">
-      		<sch:assert test="//pb:to[@eventAdapterType='http']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='http.url'])=1">
@@ -321,7 +537,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type jms</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='java.naming.factory.initial']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='java.naming.factory.initial'])=1">
@@ -330,7 +558,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='java.naming.provider.url']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='java.naming.provider.url'])=1">
@@ -339,7 +579,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='transport.jms.UserName']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='transport.jms.UserName'])=1">
@@ -348,7 +600,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='transport.jms.Password']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='transport.jms.Password'])=1">
@@ -357,7 +621,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='transport.jms.DestinationType']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='transport.jms.DestinationType'])=1">
@@ -366,7 +642,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='transport.jms.Header']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='transport.jms.Header'])=1">
@@ -375,7 +663,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='transport.jms.Destination']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='transport.jms.Destination'])=1">
@@ -384,7 +684,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='transport.jms.ConnectionFactoryJNDIName']">
-      		<sch:assert test="//pb:to[@eventAdapterType='jms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='kafka'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='transport.jms.ConnectionFactoryJNDIName'])=1">
@@ -400,7 +712,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type kafka</sch:title>
     		
     	<sch:rule context="pb:to/pb:property[@name='optional.configuration']">
-      		<sch:assert test="//pb:to[@eventAdapterType='kafka']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='optional.configuration'])=1">
@@ -409,7 +733,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='meta.broker.list']">
-      		<sch:assert test="//pb:to[@eventAdapterType='kafka']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='logger'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='meta.broker.list'])=1">
@@ -424,7 +760,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type logger</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='uniqueId']">
-      		<sch:assert test="//pb:to[@eventAdapterType='logger']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='mqtt']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='uniqueId'])=1">
@@ -439,7 +787,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type mqtt</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='qos']">
-      		<sch:assert test="//pb:to[@eventAdapterType='mqtt']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='qos'])=1">
@@ -448,7 +808,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='clientId']">
-      		<sch:assert test="//pb:to[@eventAdapterType='mqtt']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='clientId'])=1">
@@ -457,7 +829,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='cleanSession']">
-      		<sch:assert test="//pb:to[@eventAdapterType='mqtt']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='cleanSession'])=1">
@@ -472,7 +856,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type rdbms</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='datasource.name']">
-      		<sch:assert test="//pb:to[@eventAdapterType='rdbms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='datasource.name'])=1">
@@ -481,7 +877,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='table.name']">
-      		<sch:assert test="//pb:to[@eventAdapterType='rdbms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='table.name'])=1">
@@ -490,7 +898,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='execution.mode']">
-      		<sch:assert test="//pb:to[@eventAdapterType='rdbms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='execution.mode'])=1">
@@ -499,7 +919,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='update.keys']">
-      		<sch:assert test="//pb:to[@eventAdapterType='rdbms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='update.keys'])=1">
@@ -514,7 +946,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type sms</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='sms.no']">
-      		<sch:assert test="//pb:to[@eventAdapterType='sms']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='sms.no'])=1">
@@ -529,7 +973,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type soap</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='httpHeaders']">
-      		<sch:assert test="//pb:to[@eventAdapterType='soap']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='httpHeaders'])=1">
@@ -538,7 +994,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='soapHeaders']">
-      		<sch:assert test="//pb:to[@eventAdapterType='soap']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='soapHeaders'])=1">
@@ -553,7 +1021,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type ui</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='output.event.stream.version']">
-      		<sch:assert test="//pb:to[@eventAdapterType='ui']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='output.event.stream.version'])=1">
@@ -562,7 +1042,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='output.event.stream.name']">
-      		<sch:assert test="//pb:to[@eventAdapterType='ui']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='output.event.stream.name'])=1">
@@ -574,10 +1066,21 @@
   	
   	<!-- Start ruling Pattern for eventAdapterType 'websocket'--> 
    	<sch:pattern id="WebsocketAdapter">
-   		<sch:title>Checks the Adapter contents are correct for adapter type websocket</sch:title>
-    	
+   		<sch:title>Checks the Adapter contents are correct for adapter type websocket</sch:title>	
     	<sch:rule context="pb:to/pb:property[@name='websocket.server.url']">
-      		<sch:assert test="//pb:to[@eventAdapterType='websocket']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='wso2event']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='websocket.server.url'])=1">
@@ -592,7 +1095,19 @@
    		<sch:title>Checks the Adapter contents are correct for adapter type wso2event</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='protocol']">
-      		<sch:assert test="//pb:to[@eventAdapterType='wso2event']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='protocol'])=1">
@@ -601,7 +1116,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='publishingMode']">
-      		<sch:assert test="//pb:to[@eventAdapterType='wso2event']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='publishingMode'])=1">
@@ -610,7 +1137,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='publishTimeout']">
-      		<sch:assert test="//pb:to[@eventAdapterType='wso2event']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='publishTimeout'])=1">
@@ -619,7 +1158,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='receiverURL']">
-      		<sch:assert test="//pb:to[@eventAdapterType='wso2event']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='receiverURL'])=1">
@@ -628,7 +1179,19 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='authenticatorURL']">
-      		<sch:assert test="//pb:to[@eventAdapterType='wso2event']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='mqtt'] and
+      						  //pb:to[@eventAdapterType !='rdbms'] and 										
+      						  //pb:to[@eventAdapterType !='sms'] and
+      						  //pb:to[@eventAdapterType !='soap'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='authenticatorURL'])=1">
@@ -643,7 +1206,18 @@
    		<sch:title>Checks the Adapter contents are correct for common property types</sch:title>
     	
     	<sch:rule context="pb:to/pb:property[@name='topic']">
-      		<sch:assert test="//pb:to[@eventAdapterType='kafka'] or //pb:to[@eventAdapterType='mqtt']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='soap'] and
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='topic'])=1">
@@ -652,7 +1226,16 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='password']">
-      		<sch:assert test="//pb:to[@eventAdapterType='cassandra'] or //pb:to[@eventAdapterType='mqtt'] or //pb:to[@eventAdapterType='soap'] or //pb:to[@eventAdapterType='wso2event']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and 														
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='password'])=1">
@@ -661,7 +1244,18 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='url']">
-      		<sch:assert test="//pb:to[@eventAdapterType='mqtt'] or //pb:to[@eventAdapterType='soap']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and 										
+      						  //pb:to[@eventAdapterType !='wso2event'] and					
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='url'])=1">
@@ -670,7 +1264,17 @@
     	</sch:rule>
     	
     	<sch:rule context="pb:to/pb:property[@name='username']">
-      		<sch:assert test="//pb:to[@eventAdapterType='mqtt'] or //pb:to[@eventAdapterType='soap'] or //pb:to[@eventAdapterType='wso2event']">
+      		<sch:assert test="//pb:to[@eventAdapterType !='cassandra'] and 										
+      						  //pb:to[@eventAdapterType !='email'] and
+      						  //pb:to[@eventAdapterType !='http'] and 										
+      						  //pb:to[@eventAdapterType !='jms'] and
+      						  //pb:to[@eventAdapterType !='kafka'] and 										
+      						  //pb:to[@eventAdapterType !='logger']and		
+      						  //pb:to[@eventAdapterType !='rdbms'] and
+      						  //pb:to[@eventAdapterType !='sms'] and 										
+      						  //pb:to[@eventAdapterType !='ui'] and 														
+      						  //pb:to[@eventAdapterType !='websocket-local'] and						
+      						  //pb:to[@eventAdapterType !='websocket']">
          		Property name invalid under the adapter type!
       		</sch:assert>
       		<sch:assert test="count(//pb:to/pb:property[@name='username'])=1">
@@ -679,7 +1283,6 @@
     	</sch:rule>
     	
 	</sch:pattern>
-  	<!-- End ruling Pattern for common property types in eventAdapterTypes cassandra, kafka, mqtt, soap, wso2event-->
-  	
+  	<!-- End ruling Pattern for common property types in eventAdapterTypes cassandra, kafka, mqtt, soap, wso2event-->	
    		
 </sch:schema>
