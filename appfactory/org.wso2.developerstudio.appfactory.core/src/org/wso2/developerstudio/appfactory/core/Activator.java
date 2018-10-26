@@ -71,7 +71,6 @@ public class Activator implements BundleActivator {
 			
 		}
 	}
-		 
 		plugin = this;
 	}
 
@@ -88,7 +87,6 @@ public class Activator implements BundleActivator {
 	}
 	
 	private static boolean loadJKSfromEclipsePrefernaces(){
-		
 		try{
 
 		IPreferenceStore preferenceStore = org.wso2.developerstudio.eclipse.platform.ui.Activator.getDefault()
