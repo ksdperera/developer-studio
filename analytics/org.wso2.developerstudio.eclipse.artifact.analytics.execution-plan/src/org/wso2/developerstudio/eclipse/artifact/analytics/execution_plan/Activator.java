@@ -50,7 +50,7 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * This will stop the bundle activation
 	 * 
 	 * @see
 	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
