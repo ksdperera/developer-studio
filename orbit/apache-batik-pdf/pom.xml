@@ -18,14 +18,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-
     <parent>
 	<groupId>org.wso2.developerstudio</groupId>
 	<artifactId>developer-studio-orbit-parent</artifactId>
     	<version>3.8.0</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.xmlgraphics</groupId>
     <artifactId>org.apache.batik.pdf</artifactId>
@@ -36,14 +33,6 @@
         org.apache.batik.pdf. This bundle will export selected set of packages from org.apache.batik.pdf.jar
     </description>
     <url>http://wso2.org</url>
-
-    <!--dependencies>
-        <dependency>
-            <groupId>org.apache.xmlgraphics</groupId>
-            <artifactId>org.apache.batik.pdf</artifactId>
-            <version>1.6.0.v200806031500</version>
-        </dependency>
-    </dependencies-->
 
     <build>
         <plugins>
