@@ -44,25 +44,20 @@
      }
 
         
-               // No methods generated for meps other than in-out
+     // No methods generated for meps other than in-out
                 
-           /**
-            * auto generated Axis2 call back method for login method
-            * override this method for handling normal response from login operation
-            */
-           public void receiveResultlogin(
-                    boolean result
-                        ) {
-           }
+     /**
+      * auto generated Axis2 call back method for login method
+      * override this method for handling normal response from login operation
+      */
+     public void receiveResultlogin(boolean result) {
+     }
 
-          /**
-           * auto generated Axis2 Error handler
-           * override this method for handling error response from login operation
-           */
-            public void receiveErrorlogin(java.lang.Exception e) {
-            }
-                
-
-
+     /**
+      * auto generated Axis2 Error handler
+      * override this method for handling error response from login operation
+     */
+     public void receiveErrorlogin(java.lang.Exception e) {
+     }
     }
     
